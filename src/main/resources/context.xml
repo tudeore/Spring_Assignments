@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+	<!-- The below tag is for Annotation - Comment Bean tags to use Annotation -->
+	<!-- <context:component-scan base-package="com.capgemini.app"/> -->
+
+	
+	<bean id="organization" class="com.capgemini.app.bean.Organization">
+		<!-- <property name="branchManagers"></property> -->
+		<property name="cities">
+		<set>
+			<value>"Mumbai"</value>
+			<value>"Pune"</value>
+			<value>"Dhule"</value>
+			<value>"Malegaon"</value>
+			<value>"jalgaon"</value>
+		</set>
+		</property>
+		
+		 <property name="boardMembers">
+		<util:list>
+			<value>Tushar</value>
+			<value>Rohan</value>
+			<value>Shubham</value>
+			<value>Tejas</value>
+		</util:list>
+		</property> 
+		 <property name="dateOfEstablishment">
+		 	<bean class="java.time.LocalDate" factory-method="now"></bean>
+		 </property>
+		<property name="ipAddresses">
+		    <props>
+		       <prop key="station1">1010</prop>
+		        <prop key="station2">2020</prop>
+		        <prop key="station3">3030</prop>
+		    </props>
+		</property>
+		<!--<property name="listed"></property>
+		<property name="name"></property>
+		<property name="orgId"></property>
+		<property name="shareValue"></property> -->
+	</bean>
+	
+</beans>
+
+
+
+
+
