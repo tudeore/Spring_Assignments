@@ -10,6 +10,7 @@
 	<!-- The below tag is for Annotation - Comment Bean tags to use Annotation -->
 	<!-- <context:component-scan base-package="com.capgemini.app"/> -->
 
+	<context:property-placeholder location="classpath:ip.properties"/>
 	
 	<bean id="organization" class="com.capgemini.app.bean.Organization">
 		<!-- <property name="branchManagers"></property> -->
@@ -32,19 +33,15 @@
 		</util:list>
 		</property> 
 		 <property name="dateOfEstablishment">
-		 	<bean class="java.time.LocalDate" factory-method="now"></bean>
+		 	<bean class="java.time.LocalDate" factory-method="parse">
+		 	<constructor-arg value = "1997-07-15"></constructor-arg>
+		 	</bean>
 		 </property>
-		<property name="ipAddresses">
-		    <props>
-		       <prop key="station1">1010</prop>
-		        <prop key="station2">2020</prop>
-		        <prop key="station3">3030</prop>
-		    </props>
-		</property>
-		<!--<property name="listed"></property>
-		<property name="name"></property>
-		<property name="orgId"></property>
-		<property name="shareValue"></property> -->
+		<property name="ipAddresses" value="${ip1}"></property>
+		<property name="listed" value ="true"></property>
+		<property name="name" value = "Capgemini"></property>
+		<property name="orgId" value = "102"></property>
+		<property name="shareValue" value = "1000"></property>
 	</bean>
 	
 </beans>
