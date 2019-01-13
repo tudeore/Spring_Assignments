@@ -109,15 +109,96 @@ public class SavingsAccountController {
 	
 		return "getAccountByIdForm";
 		
+	}
+	
+	@RequestMapping("/getAccount")
+	public String getaccountById(@RequestParam("accountNumber") int accountNumber,Model model) throws ClassNotFoundException, AccountNotFoundException, SQLException {
 		
+	SavingsAccount account = savingsAccountService.getAccountById(accountNumber);
+	model.addAttribute("account",account);
+		return "accountDetails";
 		
+	}
+	
+	@RequestMapping("/searchByName")
+	public String searchAccountByName() {
 		
+		return "searchByName";
+	}
+	
+	@RequestMapping("/getAccountByName")
+	public String getAccountByName(@RequestParam("accountHolderName") String accountHolderName,Model model) throws ClassNotFoundException, SQLException {
 		
+		SavingsAccount account = savingsAccountService.searchAccount(accountHolderName, 0);
+		model.addAttribute("account",account);
+		return "accountDetails";
+	}
+	
+	@RequestMapping("/updateSA")
+	public String updateAccount() {
 		
+		return "updateSAForm";
+	}
+	
+	@RequestMapping("/updateSAAccountForm")
+	public String updateAccountForm(@RequestParam("accountNumber") int accountNumber,Model model) throws ClassNotFoundException, AccountNotFoundException, SQLException {
+		
+		SavingsAccount account = savingsAccountService.getAccountById(accountNumber);
+		model.addAttribute("account",account);
+		return"accountDetails";
+		
+	}
+	
+	
+	@RequestMapping("/updateAccountOne")
+	public String updateAccountOne(@RequestParam("accountNumber") int accountNumber,@RequestParam("newName") String accountHolderName,
+					@RequestParam("accountBalance") int accountBalance,@RequestParam("newSalaried") String salaried,
+					@RequestParam("accountType") String accountType) throws ClassNotFoundException, SQLException{
+		
+		boolean salariedOrNot = salaried.equalsIgnoreCase("yes")?true:false;
+		SavingsAccount accountToUpdate = new SavingsAccount(accountNumber, accountHolderName, accountBalance, salariedOrNot);
+		accountToUpdate = savingsAccountService.updateAccount(accountNumber, accountBalance, accountType);
+		return "accountDetails";
+		
+	}
+	
+	@RequestMapping("/fundTransfer")
+	public String fundTransferForm() {
+		
+		return"fundTransferForm";
+		
+	}
+	
+	@RequestMapping("/fundTransferDone")
+	public String fundTransfer(@RequestParam("accountNumberOne") int senderAccountNumber,@RequestParam("accountNumberTwo") int receiverAccountNumber,
+			@RequestParam("amount") double amount) throws ClassNotFoundException, AccountNotFoundException, SQLException {
+				
+		SavingsAccount senderSavingsAccount = savingsAccountService.getAccountById(senderAccountNumber);
+		SavingsAccount receiverSavingsAccount = savingsAccountService.getAccountById(receiverAccountNumber);
+		savingsAccountService.fundTransfer(senderSavingsAccount, receiverSavingsAccount, amount);
+		return "fundTransferSuccesful";
 		
 		
 		
 	}
 	
-}
+	
+	
+}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 

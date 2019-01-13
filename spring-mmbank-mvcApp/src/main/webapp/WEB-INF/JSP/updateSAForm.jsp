@@ -7,13 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="deleteForm">
+<form action="updateSAAccountForm">
 		<label>Enter account number<input type ="number" name="accountNumber"></label>
 		<label><input type="submit" value="submit"></label>
-	</form>
-	
-	<div>
-		<jsp:include page="homeLink.jsp"></jsp:include>
-	</div>	
+	</form>	
 </body>
 </html>

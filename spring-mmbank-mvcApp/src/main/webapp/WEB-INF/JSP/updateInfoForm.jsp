@@ -1,8 +1,5 @@
-<%@ taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page isELIgnored="false" language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-	
-	
+<%@  page isELIgnored="false" language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="updateAccountOne">
+<form action="updateAccountOne">
 	<table>
 		<tr>
 			<th>Account Number</th>
@@ -22,7 +19,7 @@
 		</tr>
 		<jstl:if test="${account!=null}">
 			<tr>
-				<td><input type="text" name ="accountNumber" required="required" value="${account.bankAccount.accountNumber}" readonly/></td>
+				<td><input type="text" name ="accountNumber" required="required" value="${account.bankAccount.accountHolderName}" readonly/></td>
 				<td><input type="text" name="newName" value="${account.bankAccount.accountHolderName}"/></td>
 				<td><input type="text" name="accountBalance" value="${account.bankAccount.accountBalance}" readonly/></td>
 				<td>
@@ -50,9 +47,9 @@
 			</jstl:forEach>
 		</jstl:if>
 	</table>
-	<div>
-		<jsp:include page="homeLink.jsp"></jsp:include>
-	</div>
+	<%-- <div>
+		<jsp:include page="home.jsp"></jsp:include>
+	</div> --%>
 </form>
 </body>
 </html>

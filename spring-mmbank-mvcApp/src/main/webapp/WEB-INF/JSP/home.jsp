@@ -13,7 +13,8 @@
 <ul>
 		<li><a href="addNewSA">Add New Savings Account</a></li>
 		<li><a href="updateSA">Update Account</a></li>
-		<li><a href="getAccountById">Get Account Id</a></li>
+		<li><a href="getAccountById">Search Account By AccountId</a></li>
+		<li><a href="searchByName">Search Account By Name</a></li>
 		<li><a href="CloseAccount">Close Account</a></li>
 		<li><a href="GetCurrentBalance">Get Current Balance</a></li>
 		<li><a href="deposit">Deposit</a></li>
