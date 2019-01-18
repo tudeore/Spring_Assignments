@@ -4,7 +4,7 @@ public class CurrentAccount extends Account {
 	private Double odLimit;
 	
 	public CurrentAccount() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public CurrentAccount(Integer accountNumber, String accountHolderName, Double currentBalance, Double odLimit) {

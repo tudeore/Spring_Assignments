@@ -13,19 +13,30 @@ public class AccountServiceImpl implements AccountService {
 
 	@Autowired
 	private SavingsAccountRepository accountRepository;
-	
-	
+
 	@Override
 	public void addSavingsAccount(Account account) {
-		
-		  accountRepository.save(account);
-	}
 
+		accountRepository.save(account);
+	}
 
 	@Override
 	public List<Account> getAllSavingsAccount() {
-		
+
 		return accountRepository.findAll();
+	}
+
+	@Override
+	public Account getAccountById(Integer accountNumber) {
+		
+		return accountRepository.findById(accountNumber).get();
+	}
+
+	@Override
+	public Account updateSavingsAccount(Account account) {
+		
+		return accountRepository.save(account);
+		
 	}
 
 }

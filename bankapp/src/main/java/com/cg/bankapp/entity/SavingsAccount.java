@@ -1,5 +1,8 @@
 package com.cg.bankapp.entity;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class SavingsAccount extends Account {
 	
 	private boolean salary;

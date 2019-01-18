@@ -1,13 +1,7 @@
 package com.cg;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import com.cg.bankapp.entity.CurrentAccount;
-import com.cg.bankapp.entity.SavingsAccount;
-import com.cg.bankapp.repository.SavingsAccountRepository;
 
 @SpringBootApplication
 public class AccountServiceApplication {
@@ -22,7 +16,7 @@ public class AccountServiceApplication {
 	 * }
 	 */
 
-	@Bean
+	/*@Bean
 	public CommandLineRunner addNewAccount(SavingsAccountRepository repository) {
 		return (evt) -> {
 			repository.save(new SavingsAccount(100, "Rohan Bhosale", 20000.0, true));
@@ -32,5 +26,5 @@ public class AccountServiceApplication {
 			repository.save(new CurrentAccount(105, "Tushar Deore", 20000.0, 40000.0));
 		};
 
-	}
+	}*/
 }
